@@ -28,7 +28,7 @@ node_modules
 .vscode
 
 coverage
-dist
+public
 logs
 
 .env
