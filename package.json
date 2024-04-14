@@ -7,7 +7,6 @@
     "packages/*"
   ],
   "scripts": {
-    "install": "npm install --workspace=server && npm install --workspace=client",
     "start": "npm start --workspace=server && npm start --workspace=client",
     "build": "npm run build --workspace=server && npm run build --workspace=client"
   },
