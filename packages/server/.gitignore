@@ -1,0 +1,13 @@
+node_modules
+.history
+.husky
+.vscode
+
+coverage
+dist
+logs
+
+.env
+.env.development
+.env.production
+.env.test

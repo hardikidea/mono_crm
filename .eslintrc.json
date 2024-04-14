@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint", "prettier", "only-warn"],
+  "rules": {
+    "indent": ["off", "tab"],
+    "linebreak-style": ["warn", "unix"],
+    "quotes": ["warn", "double"],
+    "semi": ["warn", "never"],
+    "prettier/prettier": "warn",
+    "no-async-promise-executor": "warn",
+    "no-promise-executor-return": "warn",
+    "max-nested-callbacks": "warn",
+    "@typescript-eslint/await-thenable": "warn",
+    "@typescript-eslint/no-floating-promises": "warn",
+    "@typescript-eslint/no-misused-promises": "warn",
+    "@typescript-eslint/promise-function-async": "warn"
+  }
+}
