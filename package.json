@@ -8,6 +8,8 @@
   ],
   "scripts": {
     "start": "npm start --workspace=server && npm start --workspace=client",
+    "start:dev-server": "cd packages/server && npm run start:dev",
+    "start:dev-client": "cd packages/client && npm run start:dev",
     "build": "npm run build --workspace=server && npm run build --workspace=client"
   },
   "author": "Hardik Chauhan",
