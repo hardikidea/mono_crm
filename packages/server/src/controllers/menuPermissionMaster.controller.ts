@@ -1,25 +1,24 @@
 import 'reflect-metadata'
 import { Service } from 'typedi'
 import { NextFunction, Request, Response, Router } from 'express'
-import { MenuMaster } from '@database/models'
-import { MenuMasterService } from '@service/menuMaster.service'
+import { MenuPermissionMaster } from '@database/models'
+import { MenuPermissionMasterService } from '@service/menuPermissionMaster.service'
 import { CustomError } from '@utils/CustomError'
 import { ValidateRequests } from '@core/validation'
 import { ValidationForCreateSecurityGroup, ValidationForId, ValidationForPagination } from '@validations/index'
-import { Container } from 'typedi'
-import { MenuPermissionMasterController } from './menuPermissionMaster.controller'
+// import { Container } from 'typedi'
 
 @Service()
-export class MenuMasterController {
+export class MenuPermissionMasterController {
   public router: Router
 
-  constructor(public menuMaster: MenuMasterService) {
+  constructor(public menuPermissionMaster: MenuPermissionMasterService) {
     this.router = Router()
     this.initRoutes()
   }
 
   initRoutes(): void {
-    this.initMenuPermissionRoutes()
+    // this.initUserTokenRoutes()
     this.router.get('/', ValidationForPagination, ValidateRequests, this.fetchAll)
     this.router.get('/:id', ValidationForId, ValidateRequests, this.fetchById)
     this.router.post('/', ValidationForCreateSecurityGroup, ValidateRequests, this.create)
@@ -27,16 +26,16 @@ export class MenuMasterController {
     this.router.delete('/:id', ValidationForId, ValidateRequests, this.removeById)
   }
 
-  initMenuPermissionRoutes(): void {
-   const controller = Container.get(MenuPermissionMasterController)
-   this.router.use('/permission', controller.router)
-  }
+  //initUserTokenRoutes(): void {
+  //  const controller = Container.get(UserTokenMasterController)
+  //  this.router.use('/token', controller.router)
+  //}
 
   create = async (request: Request, response: Response, next: NextFunction) => {
     try {
-      const menuMasterCreate: Partial<MenuMaster> = request.body
-      await this.menuMaster.createRecord(menuMasterCreate)
-      response.status(200).send({ status: 200, data: `[${menuMasterCreate.name}] created successfully.` })
+      const menuPermissionMasterCreate: Partial<MenuPermissionMaster> = request.body
+      await this.menuPermissionMaster.createRecord(menuPermissionMasterCreate)
+      response.status(200).send({ status: 200, data: `[${menuPermissionMasterCreate.menuId}] created successfully.` })
     } catch (error) {
       response.status(500).send('Internal Server Error')
     }
@@ -45,12 +44,12 @@ export class MenuMasterController {
   update = async (request: Request, response: Response, next: NextFunction) => {
     const id: number = parseInt(request.params.id, 0)
     try {
-      const menuMasterUpdate: Partial<MenuMaster> = request.body
-      const updatedCount = await this.menuMaster.updateRecord(id, menuMasterUpdate, true)
+      const menuPermissionMasterUpdate: Partial<MenuPermissionMaster> = request.body
+      const updatedCount = await this.menuPermissionMaster.updateRecord(id, menuPermissionMasterUpdate, true)
       if (updatedCount > 0) {
-        response.status(200).send({ status: 200, data: `${MenuMaster.tableName} [id] updated successfully.` })
+        response.status(200).send({ status: 200, data: `${MenuPermissionMaster.tableName} [id] updated successfully.` })
       } else {
-        response.status(400).send(`${MenuMaster.tableName} provided with [id] not found or Invalid Request.`)
+        response.status(400).send(`${MenuPermissionMaster.tableName} provided with [id] not found or Invalid Request.`)
       }
     } catch (error) {
       response.status(500).send('Internal Server Error')
@@ -59,21 +58,21 @@ export class MenuMasterController {
 
   fetchById = async (req: Request, res: Response, next: NextFunction) => {
     const id: number = parseInt(req.params.id, 0)
-    const menuMasterInfo = await this.menuMaster.fetchById(id)
-    if (menuMasterInfo) {
-      res.status(200).json({ status: 200, data: menuMasterInfo })
+    const menuPermissionMasterInfo = await this.menuPermissionMaster.fetchById(id)
+    if (menuPermissionMasterInfo) {
+      res.status(200).json({ status: 200, data: menuPermissionMasterInfo })
     } else {
-      next(new CustomError(404, `${MenuMaster.tableName} not found with id: [id]`))
+      next(new CustomError(404, `${MenuPermissionMaster.tableName} not found with id: [id]`))
     }
   }
 
   removeById = async (request: Request, response: Response, next: NextFunction) => {
     const id: number = parseInt(request.params.id, 0)
-    const isMenuMasterRemoved = await this.menuMaster.deleteRecord({ where: { id } })
-    if (isMenuMasterRemoved) {
-      response.status(200).json({ status: 200, data: `${MenuMaster.tableName}[id] removed successfully` })
+    const isMenuPermissionMasterRemoved = await this.menuPermissionMaster.deleteRecord({ where: { id } })
+    if (isMenuPermissionMasterRemoved) {
+      response.status(200).json({ status: 200, data: `${MenuPermissionMaster.tableName}[id] removed successfully` })
     } else {
-      next(new CustomError(404, `${MenuMaster.tableName} not found with id: [id]`))
+      next(new CustomError(404, `${MenuPermissionMaster.tableName} not found with id: [id]`))
     }
   }
 
@@ -89,16 +88,16 @@ export class MenuMasterController {
 
   private async fetchAllRecords() {
     try {
-      return await this.menuMaster.fetchAllRecord({})
+      return await this.menuPermissionMaster.fetchAllRecord({})
     } catch (error) {
-      console.error('Error fetching fetchAllMenuMasters:', error)
+      console.error('Error fetching fetchAllMenuPermissionMasters:', error)
       throw new CustomError(500, 'Internal Server Error')
     }
   }
 
   private async paginationRequest(page: number, limit: number) {
     try {
-      return await this.menuMaster.fetchPagination(page, limit)
+      return await this.menuPermissionMaster.fetchPagination(page, limit)
     } catch (error) {
       console.error('Error fetching paginationRequest:', error)
       throw new CustomError(500, 'Internal Server Error')
