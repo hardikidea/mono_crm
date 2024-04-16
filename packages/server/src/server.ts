@@ -9,7 +9,7 @@ import { CustomError } from './utils/CustomError'
 import { requestLoggerMiddleware } from './middlewares/requestLogger.middleware'
 import Container from 'typedi'
 import { ValidateAuthentication } from './database'
-import { SecurityGroupMasterController, SignupController, UserMasterController } from '@controllers/index'
+import { MenuMasterController, SecurityGroupMasterController, SignupController, UserMasterController } from '@controllers/index'
 
 export class ServerApplication {
   public expressApp: Express
@@ -45,9 +45,11 @@ export class ServerApplication {
     const userMasterController = Container.get(UserMasterController)
     const signupController = Container.get(SignupController)
     const securityGroupMasterController = Container.get(SecurityGroupMasterController)
+    const menuMasterController = Container.get(MenuMasterController)
 
     this.expressApp.use(this.getRouterURL('/user'), userMasterController.router)
     this.expressApp.use(this.getRouterURL('/securitygroup'), securityGroupMasterController.router)
+    this.expressApp.use(this.getRouterURL('/menu'), menuMasterController.router)
     this.expressApp.use(this.getRouterURL('/public'), signupController.router)
 
     // Global error handler
