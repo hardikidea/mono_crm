@@ -1,5 +1,5 @@
 import 'reflect-metadata'
-import { ServerApplication } from './server'
+import {ServerApplication} from './server'
 
 const PORT = process.env.PORT || 3000
 const application = new ServerApplication().expressApp

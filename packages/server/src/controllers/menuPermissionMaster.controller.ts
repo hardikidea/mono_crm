@@ -1,11 +1,12 @@
 import 'reflect-metadata'
-import { Service } from 'typedi'
-import { NextFunction, Request, Response, Router } from 'express'
-import { MenuPermissionMaster } from '@database/models'
-import { MenuPermissionMasterService } from '@service/menuPermissionMaster.service'
-import { CustomError } from '@utils/CustomError'
-import { ValidateRequests } from '@core/validation'
-import { ValidationForCreateSecurityGroup, ValidationForId, ValidationForPagination } from '@validations/index'
+import {Service} from 'typedi'
+import {NextFunction, Request, Response, Router} from 'express'
+import {MenuPermissionMaster} from '@database/models'
+import {MenuPermissionMasterService} from '@service/menuPermissionMaster.service'
+import {CustomError} from '@utils/CustomError'
+import {ValidateRequests} from '@core/validation'
+import {ValidationForCreateSecurityGroup, ValidationForId, ValidationForPagination} from '@validations/index'
+
 // import { Container } from 'typedi'
 
 @Service()

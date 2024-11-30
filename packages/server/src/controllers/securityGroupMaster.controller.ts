@@ -1,13 +1,13 @@
 import 'reflect-metadata'
-import Container, { Service } from 'typedi'
-import { NextFunction, Request, Response, Router } from 'express'
-import { SecurityGroupMaster } from '@database/models'
-import { SecurityGroupMasterService } from '@service/securityGroupMaster.service'
-import { CustomError } from '@utils/CustomError'
-import { ValidateRequests } from '@core/validation'
-import { ValidationForCreateSecurityGroup, ValidationForId, ValidationForPagination } from '@validations/index'
-import { AuthenticateMiddleware } from '@middlewares/auth.middleware'
-import { MenuPermissionMasterController } from './menuPermissionMaster.controller'
+import Container, {Service} from 'typedi'
+import {NextFunction, Request, Response, Router} from 'express'
+import {SecurityGroupMaster} from '@database/models'
+import {SecurityGroupMasterService} from '@service/securityGroupMaster.service'
+import {CustomError} from '@utils/CustomError'
+import {ValidateRequests} from '@core/validation'
+import {ValidationForCreateSecurityGroup, ValidationForId, ValidationForPagination} from '@validations/index'
+import {AuthenticateMiddleware} from '@middlewares/auth.middleware'
+import {MenuPermissionMasterController} from './menuPermissionMaster.controller'
 
 @Service()
 export class SecurityGroupMasterController {

@@ -1,6 +1,6 @@
-import { Service } from 'typedi'
-import { GenericRepository } from '../core/generic-repository.service'
-import { UserMaster } from '../database/models'
+import {Service} from 'typedi'
+import {GenericRepository} from '../core/generic-repository.service'
+import {UserMaster} from '../database/models'
 
 @Service()
 export class UserMasterRepository extends GenericRepository<UserMaster> {

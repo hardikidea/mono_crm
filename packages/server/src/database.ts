@@ -1,9 +1,9 @@
-import { sequelize } from './database/models/sync-model'
-import { ConnectionError } from 'sequelize'
-import { exec } from 'child_process'
+import {sequelize} from 'database/models/sync-model'
+import {ConnectionError} from 'sequelize'
+import {exec} from 'child_process'
 import config from './database/config/config'
 import logger from './utils/logger'
-import { createDatabaseIfNotExist } from './database/config/createDatabase'
+import {createDatabaseIfNotExist} from 'database/config/createDatabase'
 
 const env: string = process.env.NODE_ENV || 'development'
 const dbConfig = config[env]

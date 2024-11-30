@@ -1,5 +1,5 @@
-import { Model, DataTypes, CreationOptional } from 'sequelize'
-import { sequelize } from './sync-model'
+import {CreationOptional, DataTypes, Model} from 'sequelize'
+import {sequelize} from './sync-model'
 
 class UserTokenMaster extends Model {
   declare id: CreationOptional<number>

@@ -1,5 +1,5 @@
 {
-  "name": "mono_crm",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -8,7 +8,7 @@
     "format": "prettier --write .",
     "pre-commit": "eslint 'src/**/*.{js,ts}' --fix && prettier --write 'src/**/*.{js,ts,json,css,md}'",
     "sequelize": "ts-node -r tsconfig-paths/register ./node_modules/.bin/sequelize",
-    "migrate:dev": "env-cmd -f .env.development npm run sequelize db:migrate",
+    "migrate:dev": "env-cmd -f .env.development npx sequelize-cli db:migrate",
     "start:dev": "env-cmd -f .env.development nodemon",
     "start-and-migrate:dev": "npm run start:dev && sleep 10 && npm run migrate:dev",
     "start:test": "env-cmd -f .env.test ts-node -r tsconfig-paths/register --transpile-only src/index.ts",
@@ -72,8 +72,5 @@
     "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.5"
-  },
-  "_moduleAliases": {
-    "@controllers": "./dist/controllers"
   }
 }

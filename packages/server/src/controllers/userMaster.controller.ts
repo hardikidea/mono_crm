@@ -1,14 +1,13 @@
 import 'reflect-metadata'
-import { Service } from 'typedi'
-import { NextFunction, Request, Response, Router } from 'express'
-import { UserMaster } from '@database/models'
-import { UserMasterService } from '@service/userMaster.service'
-import { CustomError } from '@utils/CustomError'
-import { ValidateRequests } from '@core/validation'
-import { ValidationForCreateSecurityGroup, ValidationForId, ValidationForPagination } from '@validations/index'
-import { Container } from 'typedi'
-import { UserTokenMasterController } from './userTokenMaster.controller'
-import { AuthenticateMiddleware } from '@middlewares/auth.middleware'
+import {Container, Service} from 'typedi'
+import {NextFunction, Request, Response, Router} from 'express'
+import {UserMaster} from '@database/models'
+import {UserMasterService} from '@service/userMaster.service'
+import {CustomError} from '@utils/CustomError'
+import {ValidateRequests} from '@core/validation'
+import {ValidationForCreateSecurityGroup, ValidationForId, ValidationForPagination} from '@validations/index'
+import {UserTokenMasterController} from './userTokenMaster.controller'
+import {AuthenticateMiddleware} from '@middlewares/auth.middleware'
 
 @Service()
 export class UserMasterController {

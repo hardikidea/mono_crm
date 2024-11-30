@@ -1,4 +1,4 @@
-import { body } from 'express-validator'
+import {body} from 'express-validator'
 
 export const ValidationForCreateSecurityGroup = [
   body('name').notEmpty().isString().withMessage(`Security Group Name is required.`),
