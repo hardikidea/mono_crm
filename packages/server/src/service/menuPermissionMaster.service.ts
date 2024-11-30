@@ -1,9 +1,9 @@
-import { Service } from 'typedi'
-import { MenuPermissionMaster } from '../database/models'
-import { MenuPermissionMasterRepository } from '@repository/menuPermissionMaster.repository'
-import { FindOptions } from 'sequelize'
-import { IWriteRepository, IReadRepository, IDeleteRepository } from '../core/IGenericRepository.interface'
-import { TPaginationData } from '../types/TPaginationData.type'
+import {Service} from 'typedi'
+import {MenuPermissionMaster} from '../database/models'
+import {MenuPermissionMasterRepository} from '@repository/menuPermissionMaster.repository'
+import {FindOptions} from 'sequelize'
+import {IDeleteRepository, IReadRepository, IWriteRepository} from '../core/IGenericRepository.interface'
+import {TPaginationData} from '../types/TPaginationData.type'
 
 @Service()
 export class MenuPermissionMasterService implements IWriteRepository<MenuPermissionMaster>, IReadRepository<MenuPermissionMaster>, IDeleteRepository<MenuPermissionMaster> {

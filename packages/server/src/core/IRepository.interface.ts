@@ -1,5 +1,5 @@
-import { FindOptions } from 'sequelize'
-import { TPaginationData } from '../types/TPaginationData.type'
+import {FindOptions} from 'sequelize'
+import {TPaginationData} from '../types/TPaginationData.type'
 
 interface IWrite<T> {
   create(item: Partial<T>): Promise<T>

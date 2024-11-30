@@ -1,9 +1,9 @@
-import { Service } from 'typedi'
-import { SecurityGroupMaster } from '../database/models'
-import { SecurityGroupMasterRepository } from '@repository/securityGroupMaster.repository'
-import { FindOptions } from 'sequelize'
-import { IWriteRepository, IReadRepository, IDeleteRepository } from '../core/IGenericRepository.interface'
-import { TPaginationData } from '../types/TPaginationData.type'
+import {Service} from 'typedi'
+import {SecurityGroupMaster} from '../database/models'
+import {SecurityGroupMasterRepository} from '@repository/securityGroupMaster.repository'
+import {FindOptions} from 'sequelize'
+import {IDeleteRepository, IReadRepository, IWriteRepository} from '../core/IGenericRepository.interface'
+import {TPaginationData} from '../types/TPaginationData.type'
 
 @Service()
 export class SecurityGroupMasterService implements IWriteRepository<SecurityGroupMaster>, IReadRepository<SecurityGroupMaster>, IDeleteRepository<SecurityGroupMaster> {

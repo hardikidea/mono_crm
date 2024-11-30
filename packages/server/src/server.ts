@@ -1,15 +1,14 @@
 import 'reflect-metadata'
-import express, { Express, NextFunction } from 'express'
-import { Request, Response } from 'express'
+import express, {Express, NextFunction, Request, Response} from 'express'
 import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
 import cors from 'cors'
 import logger from './utils/logger'
-import { CustomError } from './utils/CustomError'
-import { requestLoggerMiddleware } from './middlewares/requestLogger.middleware'
+import {CustomError} from 'utils/CustomError'
+import {requestLoggerMiddleware} from 'middlewares/requestLogger.middleware'
 import Container from 'typedi'
-import { ValidateAuthentication } from './database'
-import { MenuMasterController, SecurityGroupMasterController, SignupController, UserMasterController } from '@controllers/index'
+import {ValidateAuthentication} from 'database'
+import {MenuMasterController, SecurityGroupMasterController, SignupController, UserMasterController} from 'controllers'
 
 export class ServerApplication {
   public expressApp: Express

@@ -1,5 +1,5 @@
-import { FindOptions } from 'sequelize'
-import { TPaginationData } from '../types/TPaginationData.type'
+import {FindOptions} from 'sequelize'
+import {TPaginationData} from '../types/TPaginationData.type'
 
 export interface IWriteRepository<T> {
   createRecord(item: Partial<T>): Promise<T>

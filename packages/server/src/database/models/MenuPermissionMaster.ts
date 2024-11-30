@@ -1,5 +1,5 @@
-import { Model, DataTypes, CreationOptional } from 'sequelize'
-import { sequelize } from './sync-model'
+import {CreationOptional, DataTypes, Model} from 'sequelize'
+import {sequelize} from './sync-model'
 import MenuMaster from './MenuMaster'
 import SecurityGroupMaster from './SecurityGroupMaster'
 

@@ -1,9 +1,9 @@
-import { Service } from 'typedi'
-import { MenuMaster } from '../database/models'
-import { MenuMasterRepository } from '@repository/menuMaster.repository'
-import { FindOptions } from 'sequelize'
-import { IWriteRepository, IReadRepository, IDeleteRepository } from '../core/IGenericRepository.interface'
-import { TPaginationData } from '../types/TPaginationData.type'
+import {Service} from 'typedi'
+import {MenuMaster} from '../database/models'
+import {MenuMasterRepository} from '@repository/menuMaster.repository'
+import {FindOptions} from 'sequelize'
+import {IDeleteRepository, IReadRepository, IWriteRepository} from '../core/IGenericRepository.interface'
+import {TPaginationData} from '../types/TPaginationData.type'
 
 @Service()
 export class MenuMasterService implements IWriteRepository<MenuMaster>, IReadRepository<MenuMaster>, IDeleteRepository<MenuMaster> {

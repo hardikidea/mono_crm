@@ -1,12 +1,12 @@
 import 'reflect-metadata'
-import { Service } from 'typedi'
-import { NextFunction, Request, Response, Router } from 'express'
-import { UserSecurityGroupMaster } from '@database/models'
-import { UserSecurityGroupMasterService } from '@service/userSecurityGroupMaster.service'
-import { CustomError } from '@utils/CustomError'
-import { ValidateRequests } from '@core/validation'
-import { ValidationForCreateSecurityGroup, ValidationForId, ValidationForPagination } from '@validations/index'
-import { AuthenticateMiddleware } from '@middlewares/auth.middleware'
+import {Service} from 'typedi'
+import {NextFunction, Request, Response, Router} from 'express'
+import {UserSecurityGroupMaster} from '@database/models'
+import {UserSecurityGroupMasterService} from '@service/userSecurityGroupMaster.service'
+import {CustomError} from '@utils/CustomError'
+import {ValidateRequests} from '@core/validation'
+import {ValidationForCreateSecurityGroup, ValidationForId, ValidationForPagination} from '@validations/index'
+import {AuthenticateMiddleware} from '@middlewares/auth.middleware'
 
 @Service()
 export class UserSecurityGroupMasterController {

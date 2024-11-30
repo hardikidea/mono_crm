@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { Sequelize } from 'sequelize'
+import {Sequelize} from 'sequelize'
 import config from '../config/config' // Adjust the import based on your actual config path
 
 const basename: string = path.basename(__filename)

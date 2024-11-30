@@ -1,10 +1,9 @@
-import { Model, ModelCtor, UniqueConstraintError, ValidationErrorItem } from 'sequelize'
 // import { IRepository } from './IRepository.interface'
-import { FindOptions, WhereOptions } from 'sequelize'
+import {FindOptions, Model, ModelCtor, UniqueConstraintError, ValidationErrorItem, WhereOptions} from 'sequelize'
 import _ from 'lodash'
-import { CustomError } from '../utils/CustomError'
-import { IWrite, IRead, IDelete } from './IRepository.interface'
-import { TPaginationData } from '../types/TPaginationData.type'
+import {CustomError} from '../utils/CustomError'
+import {IDelete, IRead, IWrite} from './IRepository.interface'
+import {TPaginationData} from '../types/TPaginationData.type'
 
 export abstract class GenericRepository<T extends Model<T>> implements IWrite<T>, IRead<T>, IDelete<T> {
   constructor(private model: ModelCtor<T>) {

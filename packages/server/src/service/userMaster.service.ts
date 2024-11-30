@@ -1,9 +1,9 @@
-import { Service } from 'typedi'
-import { UserMasterRepository } from '../repository'
-import { UserMaster } from '../database/models'
-import { FindOptions } from 'sequelize'
-import { IWriteRepository, IReadRepository, IDeleteRepository } from '../core/IGenericRepository.interface'
-import { TPaginationData } from '../types/TPaginationData.type'
+import {Service} from 'typedi'
+import {UserMasterRepository} from '../repository'
+import {UserMaster} from '../database/models'
+import {FindOptions} from 'sequelize'
+import {IDeleteRepository, IReadRepository, IWriteRepository} from '../core/IGenericRepository.interface'
+import {TPaginationData} from '../types/TPaginationData.type'
 
 @Service()
 export class UserMasterService implements IWriteRepository<UserMaster>, IReadRepository<UserMaster>, IDeleteRepository<UserMaster> {

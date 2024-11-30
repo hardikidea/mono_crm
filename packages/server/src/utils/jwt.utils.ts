@@ -1,6 +1,6 @@
 // src/utils/jwt.utils.ts
 import jwt from 'jsonwebtoken'
-import { JWTPayLoad } from 'types/jwt.payload.type'
+import {JWTPayLoad} from 'types/jwt.payload.type'
 
 
 export const generateToken = (payLoad: JWTPayLoad): string => {

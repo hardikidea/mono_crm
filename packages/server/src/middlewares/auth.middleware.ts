@@ -1,7 +1,7 @@
 // src/middlewares/auth.middleware.ts
-import { Request, Response, NextFunction } from 'express'
-import { verifyToken } from '../utils/jwt.utils'
-import { CustomError } from '../utils/CustomError'
+import {NextFunction, Request, Response} from 'express'
+import {verifyToken} from '../utils/jwt.utils'
+import {CustomError} from '../utils/CustomError'
 import logger from '../utils/logger'
 
 export const AuthenticateMiddleware = (req: Request, res: Response, next: NextFunction): void => {
